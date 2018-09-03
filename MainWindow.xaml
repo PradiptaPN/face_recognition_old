@@ -1,0 +1,925 @@
+﻿<Window x:Class="IdentifikasiEkspresiWajah.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:local="clr-namespace:IdentifikasiEkspresiWajah"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1366" WindowState="Maximized">
+    <TabControl HorizontalAlignment="Left" Height="768" Margin="0,0,0,0" VerticalAlignment="Top" Width="1366" >
+        <TabItem Header="Recognizer" Margin="0,-2,-346,-10">
+            <Grid Margin="0,10,4,0" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="360"/>
+                        <RowDefinition Height="345"/>
+                    </Grid.RowDefinitions>
+
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Grid.Row="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="640"/>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="640"/>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="640"/>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="640"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image x:Name="Camera1" Width="auto" Height="auto" Grid.Column="1"/>
+                            <Image x:Name="Camera2" Width="auto" Height="auto" Grid.Column="3"/>
+                            <Image x:Name="Camera3" Width="auto" Height="auto" Grid.Column="5"/>
+                            <Image x:Name="Camera4" Width="auto" Height="auto" Grid.Column="7"/>
+
+                        </Grid>
+                    </ScrollViewer>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Row="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                                <RowDefinition Height="192.5"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="341.5"/>
+                                <ColumnDefinition Width="341.5"/>
+                                <ColumnDefinition Width="341.5"/>
+                                <ColumnDefinition Width="341.5"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="0" Content="Enable Camera 1" FontSize="20" Click="Camera1_Click"/>
+                            <Button Grid.Column="1" Content="Enable Camera 2" FontSize="20" Click="Camera2_Click"/>
+                            <Button Grid.Column="2" Content="Enable Camera 3" FontSize="20" Click="Camera3_Click"/>
+                            <Button Grid.Column="3" Content="Enable Camera 4" FontSize="20" Click="Camera4_Click"/>
+
+                            <!--Baris Pertama-->
+                            <StackPanel Grid.Column="0" Grid.Row="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <lvc:CartesianChart LegendLocation="Right" Grid.Column="0" Grid.Row="1" x:Name="Chart1">
+                                        <lvc:CartesianChart.Series>
+                                            <lvc:LineSeries Values="{Binding cv_net1}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Net"/>
+                                            <lvc:LineSeries Values="{Binding cv_sen1}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Sen"/>
+                                            <lvc:LineSeries Values="{Binding cv_bin1}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Bin"/>
+                                            <lvc:LineSeries Values="{Binding cv_lel1}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Lel"/>
+                                            <lvc:LineSeries Values="{Binding cv_fru1}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Fru" />
+                                            <lvc:LineSeries Values="{Binding cv_jut1}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Jut"/>
+                                            <lvc:LineSeries Values="{Binding cv_jik1}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Jik"/>
+                                            <lvc:LineSeries Values="{Binding cv_bos1}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Bos"/>
+                                        </lvc:CartesianChart.Series>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Percentage(%)" LabelFormatter="{Binding Percentage}"></lvc:Axis>
+                                        </lvc:CartesianChart.AxisY>
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Time" Labels="{Binding Formatter}"></lvc:Axis>
+                                        </lvc:CartesianChart.AxisX>
+                                    </lvc:CartesianChart>
+
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="Person1"/>
+                                    <Button Grid.Row="1" Grid.Column="1"/>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    
+
+                                    <lvc:CartesianChart LegendLocation="Right" Grid.Column="0" Grid.Row="1" x:Name="Chart2" >
+                                        <lvc:CartesianChart.Series>
+                                            <lvc:LineSeries Values="{Binding cv_net2}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Net"/>
+                                            <lvc:LineSeries Values="{Binding cv_sen2}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Sen"/>
+                                            <lvc:LineSeries Values="{Binding cv_bin2}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Bin"/>
+                                            <lvc:LineSeries Values="{Binding cv_lel2}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Lel"/>
+                                            <lvc:LineSeries Values="{Binding cv_fru2}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Fru" />
+                                            <lvc:LineSeries Values="{Binding cv_jut2}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Jut"/>
+                                            <lvc:LineSeries Values="{Binding cv_jik2}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Jik"/>
+                                            <lvc:LineSeries Values="{Binding cv_bos2}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Bos"/>
+                                        </lvc:CartesianChart.Series>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Percentage(%)" LabelFormatter="{Binding Percentage}"></lvc:Axis>
+                                        </lvc:CartesianChart.AxisY>
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Time" Labels="{Binding Formatter}"></lvc:Axis>
+                                        </lvc:CartesianChart.AxisX>
+                                    </lvc:CartesianChart>
+
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="Person2"/>
+                                    <Button Grid.Row="1" Grid.Column="1"/>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <lvc:CartesianChart LegendLocation="Left" Grid.Column="0" Grid.Row="1" Zoom="X" x:Name="Chart3" >
+                                        <lvc:CartesianChart.Series>
+                                            <lvc:LineSeries Values="{Binding cv_net3}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Net"/>
+                                            <lvc:LineSeries Values="{Binding cv_sen3}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Sen"/>
+                                            <lvc:LineSeries Values="{Binding cv_bin3}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Bin"/>
+                                            <lvc:LineSeries Values="{Binding cv_lel3}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Lel"/>
+                                            <lvc:LineSeries Values="{Binding cv_fru3}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Fru" />
+                                            <lvc:LineSeries Values="{Binding cv_jut3}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Jut"/>
+                                            <lvc:LineSeries Values="{Binding cv_jik3}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Jik"/>
+                                            <lvc:LineSeries Values="{Binding cv_bos3}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Bos"/>
+                                        </lvc:CartesianChart.Series>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Percentage(%)" LabelFormatter="{Binding Percentage}"></lvc:Axis>
+                                        </lvc:CartesianChart.AxisY>
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Time" Labels="{Binding Formatter}"></lvc:Axis>
+                                        </lvc:CartesianChart.AxisX>
+                                    </lvc:CartesianChart>
+
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="Person3"/>
+                                    <Button Grid.Row="1" Grid.Column="1" Click="Button_Click"/>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                    <lvc:CartesianChart LegendLocation="Right" Grid.Column="0" Grid.Row="1" >
+                                        <lvc:CartesianChart.Series>
+                                            <lvc:LineSeries Values="{Binding cv_net4}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Net"/>
+                                            <lvc:LineSeries Values="{Binding cv_sen4}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Sen"/>
+                                            <lvc:LineSeries Values="{Binding cv_bin4}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Bin"/>
+                                            <lvc:LineSeries Values="{Binding cv_lel4}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Lel"/>
+                                            <lvc:LineSeries Values="{Binding cv_fru4}" StrokeThickness="1" 
+                                                    LineSmoothness="0" PointGeometry="{x:Null}" Title="Fru" />
+                                            <lvc:LineSeries Values="{Binding cv_jut4}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Jut"/>
+                                            <lvc:LineSeries Values="{Binding cv_jik4}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Jik"/>
+                                            <lvc:LineSeries Values="{Binding cv_bos4}" StrokeThickness="1" 
+                                                    LineSmoothness="1" PointGeometry="{x:Null}" Title="Bos"/>
+                                        </lvc:CartesianChart.Series>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Percentage(%)" LabelFormatter="{Binding Percentage}"></lvc:Axis>
+                                        </lvc:CartesianChart.AxisY>
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Time" Labels="{Binding Formatter}"></lvc:Axis>
+                                        </lvc:CartesianChart.AxisX>
+                                    </lvc:CartesianChart>
+
+                                    <Label Grid.Row="0" Grid.Column="0" x:Name="Person4"/>
+                                    <Button Grid.Row="1" Grid.Column="1"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Kedua -->
+                            <StackPanel Grid.Column="0" Grid.Row="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label x:Name="Timer_test" Grid.Column="0" Grid.Row="1"/>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Ketiga -->
+                            <StackPanel Grid.Column="0" Grid.Row="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="3">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="3">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Keempat -->
+                            <StackPanel Grid.Column="0" Grid.Row="4">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="4">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="4">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="4">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Kelima -->
+                            <StackPanel Grid.Column="0" Grid.Row="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Keenam -->
+                            <StackPanel Grid.Column="0" Grid.Row="6">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="6">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="6">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="6">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Ketujuh -->
+                            <StackPanel Grid.Column="0" Grid.Row="7">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="7">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="7">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="7">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Kedelapan -->
+                            <StackPanel Grid.Column="0" Grid.Row="8">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="8">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="8">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="8">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Kesembilan -->
+                            <StackPanel Grid.Column="0" Grid.Row="9">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="9">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="9">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="9">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Kesepuluh -->
+                            <StackPanel Grid.Column="0" Grid.Row="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Baris Kesebelas-->
+                            <StackPanel Grid.Column="0" Grid.Row="11">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="11">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="11">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Grid.Row="11">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="14.5"/>
+                                        <RowDefinition Height="178"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="324"/>
+                                        <ColumnDefinition Width="13.5"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Training" Margin="346,-2,-700,-10">
+            <Grid Margin="-286,-236,-976,-438">
+                <Grid HorizontalAlignment="Left" Height="705" Margin="284,243,0,0" VerticalAlignment="Top" Width="1356">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="640"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="716"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="360"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="345"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Row="0" Grid.Column="0" x:Name="TakeDataset" />
+                    <StackPanel Grid.Row="0" Grid.Column="2" >
+                        <Label Height="10" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="240"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" x:Name="IdentifiedFace" Width="192" Height="192">
+
+                            </Image>
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Width="476">
+                                <ComboBox Height="25" x:Name="EmotionBox" HorizontalAlignment="Left" Width="466">
+                                    <ComboBoxItem HorizontalAlignment="Left" Width="714">
+                                        Netral
+                                    </ComboBoxItem>
+                                    <ComboBoxItem HorizontalAlignment="Left" Width="714">
+                                        Lelah
+                                    </ComboBoxItem>
+                                    <ComboBoxItem HorizontalAlignment="Left" Width="714">
+                                        Bingung
+                                    </ComboBoxItem>
+                                    <ComboBoxItem HorizontalAlignment="Left" Width="714">
+                                        Terkejut
+                                    </ComboBoxItem>
+                                    <ComboBoxItem HorizontalAlignment="Left" Width="714">
+                                        Senang
+                                    </ComboBoxItem>
+                                    <ComboBoxItem HorizontalAlignment="Left" Width="714">
+                                        Jijik
+                                    </ComboBoxItem>
+                                    <ComboBoxItem HorizontalAlignment="Left" Width="714">
+                                        Frustasi
+                                    </ComboBoxItem>
+                                    <ComboBoxItem HorizontalAlignment="Left" Width="714">
+                                        Bosan
+                                    </ComboBoxItem>
+                                </ComboBox>
+                                <Label Height="50" HorizontalAlignment="Left" Width="478">
+                                    <TextBlock TextWrapping="Wrap" Width="468" Height="40">
+                            Pilih salah satu emosi yang akan dimasukkan dari ke-8 emosi yang ada diatas
+                                    </TextBlock>
+                                </Label>
+                                <ComboBox Height="25" ItemsSource="{Binding listSiswa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+                                          x:Name="FaceBox" HorizontalAlignment="Left" Width="467" RenderTransformOrigin="0.5,0.5"
+                                          >
+                                    <ComboBox.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="0.119"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </ComboBox.RenderTransform>
+                                </ComboBox>
+                                <Label Height="10" HorizontalAlignment="Left" Width="478" />
+                                <TextBox Height="25" Width="466" BorderThickness="2" HorizontalAlignment="Left" x:Name="NameBox"/>
+                                <Label Height="50" BorderThickness="0" HorizontalAlignment="Left" Width="486">
+                                    <TextBlock TextWrapping="Wrap" Width="468">
+                            Pilih salah nama sis yang akan ditambahkan ke database. Apabila nama siswa tersebut belum terdaftar, pilih 
+                            "Tambah Siswa" dan masukkan nama siswa pada box diatas.
+                                    </TextBlock>
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Height="35">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="302*"/>
+                                <ColumnDefinition Width="93*"/>
+                                <ColumnDefinition Width="321*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Click="AddtoDataset">
+                                Tambahkan Wajah pada Dataset
+                            </Button>
+                            <Button Grid.Column="2" HorizontalAlignment="Left" Width="311" Click="CreateMNistDataset">
+                                Buat MNIST Dataset
+                            </Button>
+
+                        </Grid>
+                        <Grid Height="129">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="34"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="302"/>
+                                <ColumnDefinition Width="93"/>
+                                <ColumnDefinition Width="321"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Button Grid.Column="0" Grid.Row="1" Content="Refresh List Siswa" Click="RefreshList" />
+                            <Button Grid.Column="0" Grid.Row="3" Content="Latih Network Pengenalan Wajah"/>
+                            <Button Grid.Column="2" Grid.Row="1" Content="Latih Network Pengenalan Ekspresi Wajah" HorizontalAlignment="Left" Width="311" Click="TrainFERNet"/>
+                            
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="0">
+                        <Grid Height="345">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="18*"/>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="18*"/>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="24*"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="24*"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="24*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="253"/>
+                                <ColumnDefinition Width="152"/>
+                                <ColumnDefinition Width="Auto" MinWidth="235"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Button Grid.Row="0" Content="Clear Camera Usage" Click="CameraClear"/>
+                            <Button Grid.Row="2" Content="Use Camera 1" Click="UseCamera1"/>
+                            <Button Grid.Row="4" Content="Use Camera 2" Click="UseCamera2"/>
+                            <Button Grid.Row="6" Content="Use Camera 3" Click="UseCamera3"/>
+                            <Button Grid.Row="8" Content="Use Camera 4" Click="UseCamera4"/>
+
+                            <TextBox Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="235" BorderThickness="0">
+                                Gunakan tombol disamping untuk mematikan semua kamera
+                            </TextBox>
+                            <TextBox Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Width="235" TextWrapping="Wrap" BorderThickness="0">
+                                Gunakan tombol disamping untuk menggunakan kamera 1
+                            </TextBox>
+                            <TextBox Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" Width="235" TextWrapping="Wrap" BorderThickness="0">
+                                Gunakan tombol disamping untuk menggunakan kamera 2
+                            </TextBox>
+                            <TextBox Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" Width="235" TextWrapping="Wrap" BorderThickness="0">
+                                Gunakan tombol disamping untuk menggunakan kamera 3
+                            </TextBox>
+                            <TextBox Grid.Column="2" Grid.Row="8" HorizontalAlignment="Left" Width="235" TextWrapping="Wrap" BorderThickness="0">
+                                Gunakan tombol disamping untuk menggunakan kamera 4
+                            </TextBox>
+
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                    </StackPanel>
+
+                </Grid>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
